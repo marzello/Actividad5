@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.empresa.entity.Deporte;
-import com.empresa.service.DeporteService;
+import com.empresa.entity.Ciclo;
+//import com.empresa.entity.Deporte;
+import com.empresa.service.CicloService;
+//import com.empresa.service.DeporteService;
 
 @RestController
 @RequestMapping("/rest/util")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UtilController {
-
+/*
 	@Autowired
 	private DeporteService  deporteService;
 
@@ -25,6 +27,15 @@ public class UtilController {
 	@ResponseBody
 	public ResponseEntity<List<Deporte>> listaDeporte(){
 		List<Deporte> lista = deporteService.listaDeporte();
+		return ResponseEntity.ok(lista);
+	}*/
+	@Autowired
+	private CicloService  cicloService;
+
+	@GetMapping("/ciclo")
+	@ResponseBody
+	public ResponseEntity<List<Ciclo>> listaCiclo(){
+		List<Ciclo> lista = cicloService.listaCiclo();
 		return ResponseEntity.ok(lista);
 	}
 	
